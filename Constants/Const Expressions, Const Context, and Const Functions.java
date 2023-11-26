@@ -74,7 +74,8 @@
 #### 6. **Conclusion:**
    - Constant expressions, const context, and const functions in Rust provide a powerful mechanism for performing computations at compile time, ensuring efficiency and predictability in code. Understanding their usage and limitations is essential for leveraging these features effectively.
 
-
+===============
+   
   In Rust, a const context is a situation where a constant expression is expected. This includes array type length expressions, array repeat length expressions, the initializer of constants, statics, enum discriminants, a const generic argument, and more [Source 2](https://doc.rust-lang.org/std/keyword.const.html).
 
 A const expression is an expression that can be evaluated at compile time. These expressions are the only allowed expressions in const contexts and are always evaluated at compile time. Here are some examples of const expressions:
