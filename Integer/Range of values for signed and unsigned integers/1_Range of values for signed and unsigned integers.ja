@@ -1,0 +1,62 @@
+The range of values that can be stored by signed and unsigned integers in Rust is determined by the number of bits used by each variant. The general formula for the range of values is:
+
+- **For signed integers (`i`):** From -(2^(n-1)) to 2^(n-1) - 1, where `n` is the number of bits.
+- **For unsigned integers (`u`):** From 0 to 2^n - 1, where `n` is the number of bits.
+
+Here's a breakdown for each variant:
+
+**Signed Integers:**
+- `i8` (8-bit): From -128 to 127
+- `i16` (16-bit): From -32,768 to 32,767
+- `i32` (32-bit): From -2,147,483,648 to 2,147,483,647
+- `i64` (64-bit): From -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+- `i128` (128-bit): From approximately -2^127 to 2^127 - 1
+- `isize` (platform-dependent): Depends on the architecture (32-bit or 64-bit)
+
+**Unsigned Integers:**
+- `u8` (8-bit): From 0 to 255
+- `u16` (16-bit): From 0 to 65,535
+- `u32` (32-bit): From 0 to 4,294,967,295
+- `u64` (64-bit): From 0 to 18,446,744,073,709,551,615
+- `u128` (128-bit): From 0 to 2^128 - 1
+- `usize` (platform-dependent): Depends on the architecture (32-bit or 64-bit)
+
+It's important to choose the appropriate integer type based on the range of values you expect your variable to hold. This helps in optimizing memory usage and preventing unintended overflow or underflow. The default integer type for integer literals in Rust is `i32` due to its good balance between range and efficiency.
+
+
+
+
+
+
+Sure, here is a table summarizing the range of values that can be stored by each signed and unsigned integer type in Rust:
+
+| Integer Type | Size (bits) | Signed Range                                    | Unsigned Range                                  |
+|--------------|-------------|-------------------------------------------------|--------------------------------------------------|
+| i8           | 8           | -128 to 127                                    | 0 to 255                                         |
+| i16          | 16          | -32,768 to 32,767                              | 0 to 65,535                                      |
+| i32          | 32          | -2,147,483,648 to 2,147,483,647                | 0 to 4,294,967,295                               |
+| i64          | 64          | -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 | 0 to 18,446,744,073,709,551,615                  |
+| i128         | 128         | -170,141,183,460,469,203,872 to 170,141,183,460,469,203,871 | 0 to 340,282,366,920,938,463,463,374,607         |
+| isize        | platform-dependent | -2^31 to 2^31 - 1 (32-bit systems)             | 0 to 2^31 - 1 (32-bit systems)                    |
+|              |             | -2^63 to 2^63 - 1 (64-bit systems)             | 0 to 2^63 - 1 (64-bit systems)                    |
+| u8           | 8           | N/A                                             | 0 to 255                                         |
+| u16          | 16          | N/A                                             | 0 to 65,535                                      |
+| u32          | 32          | N/A                                             | 0 to 4,294,967,295                               |
+| u64          | 64          | N/A                                             | 0 to 18,446,744,073,709,551,615                  |
+| u128         | 128         | N/A                                             | 0 to 340,282,366,920,938,463,463,374,607         |
+| usize        | platform-dependent | 0 to 2^31 - 1 (32-bit systems)                | 0 to 2^63 - 1 (64-bit systems)                    |
+
+
+
+                             
+
+As you can see, the range of values that can be stored by an integer type increases as the size of the type increases. This is because larger integer types have more bits to represent the value of the number.
+
+I hope this helps!
+
+
+
+
+
+
+
