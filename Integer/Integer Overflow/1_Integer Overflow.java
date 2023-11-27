@@ -122,5 +122,48 @@ Choose the method that best fits your requirements. If you want to perform modul
 
 
 
+  Integer overflow in Rust occurs when the result of an arithmetic operation exceeds the maximum or minimum value that can be stored in a given data type. This can happen when you're performing operations on integers that are outside their valid range. For example, if you're working with an `u8` (unsigned 8-bit integer), which can hold values from 0 to 255, and you try to add 1 to the maximum value (255), you'll end up with 256, which is outside the valid range. This is an integer overflow [Source 2](https://www.huy.rocks/everyday/01-16-2022-rust-dealing-with-integer-overflow).
+
+Rust handles integer overflow differently in debug mode and release mode. In debug mode, Rust includes checks for integer overflow that cause your program to panic at runtime. In release mode, there is no integer overflow check, so no panic occurs. Instead, Rust performs two's complement wrapping, where values greater than the maximum value the type can hold "wrap around" to the minimum of the values the type can hold [Source 2](https://www.huy.rocks/everyday/01-16-2022-rust-dealing-with-integer-overflow).
+
+To handle integer overflow in Rust, you can use the following methods provided by the standard library for primitive numeric types:
+
+1. **Wrapping methods**: These methods wrap the values in all modes. For example, `wrapping_add` is used to add two numbers and wrap the result. If the result is greater than the maximum value that can be stored in the data type, it wraps around to the minimum value.
+
+```rust
+u8::MAX.wrapping_add(2) == 1u8
+0u8.wrapping_sub(1) == u8::MAX
+```
+
+2. **Checked methods**: These methods return `None` if there is an overflow. For example, `checked_add` is used to add two numbers and returns `None` if the result is greater than the maximum value that can be stored in the data type.
+
+```rust
+5u8.checked_add(1) == Some(6u8)
+u8::MAX.checked_add(1) == None
+```
+
+3. **Overflowing methods**: These methods return a tuple that contains the result of the operation and a boolean flag that indicates whether an overflow occurred or not. For example, `overflowing_add` is used to add two numbers and returns a tuple where the first element is the result of the operation and the second element is a boolean indicating whether an overflow occurred.
+
+```rust
+5u8.overflowing_add(1) == (6u8, false)
+u8::MAX.overflowing_add(1) == (0u8, true)
+```
+
+4. **Saturating methods**: These methods return the maximum or minimum value of the data type instead of panicking or wrapping if an overflow occurred. For example, `saturating_add` is used to add two numbers and returns the maximum value of the data type if an overflow occurred.
+
+```rust
+let x = a.saturating_add(b)
+```
+
+These methods can be used to handle integer overflow in Rust in a way that best suits your needs [Source 2](https://www.huy.rocks/everyday/01-16-2022-rust-dealing-with-integer-overflow), [Source 4](https://stackoverflow.com/questions/68807024/what-happens-in-rust-programming-language-when-an-integer-arithmetic-operation-o), [Source 6](https://www.linkedin.com/advice/3/how-can-you-prevent-integer-overflow-attacks), [Source 7](https://huonw.github.io/blog/2016/04/myths-and-legends-about-integer-overflow-in-rust/), [Source 8](https://www.sec3.dev/blog/understanding-arithmetic-overflow-underflows-in-rust-and-solana-smart-contracts), [Source 9](https://blog.devgenius.io/behaviour-of-integer-arithmetic-in-rust-b81e1efec513).
+                                                                                                            
+                                                                                                            
+                                                                                                            
+                                                                                                            
+                                                                                                            
+                                                                                                            ===
+
+
+
 
   
