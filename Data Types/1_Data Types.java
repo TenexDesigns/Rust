@@ -107,12 +107,79 @@ These are some of the fundamental data types in Rust. Rust is known for its stro
 
 
 
+   Reference Types
+
+Reference types refer to values stored elsewhere in memory. They are created using the & operator and allow for non-ownership borrowing of data.
+
+Rust
+let number = 5;
+let reference = &number; // Create a reference named 'reference' to the value of 'number'
+Use code with caution. Learn more
+These are just a few of the data types available in Rust. The language also provides more complex types like structs and enums, which offer greater flexibility and control over data organization.
 
 
 
 
 
 
+
+
+   
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+   Rust is a statically-typed language, meaning that it must know the types of all variables at compile time. The compiler can often infer what type we want to use based on the value and how we use it, but in cases where many types are possible, we must add a type annotation[^Source 1^][^Source 8^]. 
+
+Rust has four primary data types, also known as scalar types[^Source 0^]:
+
+1. **Integer Types**: Rust uses integer data types to store whole numbers. For example:
+
+```rust
+let number: i32 = 200;
+```
+Here, `i32` is a signed integer type that can store both positive and negative values and takes 32 bits of space in memory[^Source 0^]. 
+
+Rust provides signed (i8, i16, i32, i64, i128) and unsigned (u8, u16, u32, u64, u128) integer types[^Source 4^][^Source 8^]. The signed variants can store negative and positive values, whereas unsigned can store only positive[^Source 4^].
+
+2. **Floating-Point Types**: Floating point types are used to store fractional numbers (numbers with decimal points). In Rust, floating-point data types can be divided into `f32` and `f64`[^Source 0^][^Source 1^]. For example:
+
+```rust
+let x: f32 = 3.1;
+```
+
+3. **Boolean Types**: In Rust, a boolean data type can have two possible values: `true` or `false`[^Source 0^][^Source 1^]. For example:
+
+```rust
+let flag1: bool = true;
+let flag2: bool = false;
+```
+
+4. **Character Types**: The character data type in Rust is used to store a character[^Source 0^][^Source 1^]. For example:
+
+```rust
+let character: char = 'z';
+```
+Here, `char` represents the character type variable and we use single quotes to represent a character[^Source 0^].
+
+Apart from these, Rust also supports compound data types like arrays and tuples[^Source 1^][^Source 8^]. An array is a collection of multiple values with the same type and fixed length[^Source 1^], while a tuple is a collection of values with different types[^Source 1^].
+
+```rust
+let a = [1, 2, 3, 4, 5]; // array
+let t = (1, "hello", 'c'); // tuple
+```
+
+Rust also has a feature known as "Type Inference", where Rust automatically identifies the data type by looking at the value of the variable and associates it with the variable[^Source 0^]. For example:
+
+```rust
+let x = 51;
+```
+
+In this case, Rust will automatically set `i32` as the type (default type for integer variable) by looking at the value `51`[^Source 0^].
 
 
 
