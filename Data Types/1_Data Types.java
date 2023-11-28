@@ -1,3 +1,134 @@
+In Rust, data types can be broadly categorized into two main groups: scalar types and compound types.
+
+### Scalar Types:
+
+1. **Integers:**
+   - Signed integers: `i8`, `i16`, `i32`, `i64`, `i128`
+   - Unsigned integers: `u8`, `u16`, `u32`, `u64`, `u128`
+   ```rust
+   let a: i32 = 42;
+   let b: u64 = 123;
+   ```
+
+2. **Floating-Point:**
+   - `f32` and `f64`
+   ```rust
+   let c: f32 = 3.14;
+   let d: f64 = 2.71828;
+   ```
+
+3. **Booleans:**
+   - `bool`
+   ```rust
+   let is_true: bool = true;
+   let is_false: bool = false;
+   ```
+
+4. **Characters:**
+   - `char`
+   ```rust
+   let e: char = 'A';
+   ```
+
+### Compound Types:
+
+1. **Tuples:**
+   - Fixed-size ordered list of elements.
+   ```rust
+   let tuple: (i32, f64, char) = (42, 3.14, 'A');
+   let (x, y, z) = tuple; // Destructuring
+   ```
+
+2. **Arrays:**
+   - Fixed-size array of elements of the same type.
+   ```rust
+   let array: [i32; 5] = [1, 2, 3, 4, 5];
+   let first_element = array[0];
+   ```
+
+3. **Slices:**
+   - A dynamically sized view into a contiguous sequence, represented by a reference to a portion of an array.
+   ```rust
+   let slice: &[i32] = &array[1..4];
+   ```
+
+4. **Strings:**
+   - A sequence of characters.
+   ```rust
+   let string: String = String::from("Hello, Rust!");
+   let string_slice: &str = "Hello, Rust!";
+   ```
+
+5. **Enums:**
+   - A type that can have multiple values.
+   ```rust
+   enum Coin {
+       Penny,
+       Nickel,
+       Dime,
+       Quarter,
+   }
+   let coin: Coin = Coin::Quarter;
+   ```
+
+6. **Structs:**
+   - Define a custom data type.
+   ```rust
+   struct Person {
+       name: String,
+       age: u32,
+   }
+   let person = Person {
+       name: String::from("Alice"),
+       age: 30,
+   };
+   ```
+
+7. **Option:**
+   - Represents either a value (`Some`) or nothing (`None`).
+   ```rust
+   let maybe_number: Option<i32> = Some(42);
+   ```
+
+8. **Result:**
+   - Represents either a successful value (`Ok`) or an error (`Err`).
+   ```rust
+   fn divide(x: f64, y: f64) -> Result<f64, &'static str> {
+       if y != 0.0 {
+           Ok(x / y)
+       } else {
+           Err("Division by zero")
+       }
+   }
+   ```
+
+These are some of the fundamental data types in Rust. Rust is known for its strong type system, which helps prevent many common programming errors.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------
+
 Sure, I can provide you with a comprehensive overview of data types in Rust, along with code samples, explanations, and usage scenarios.
 
 Data types in Rust are fundamental building blocks for organizing and manipulating data within your code. Each data type represents a distinct category of information and defines the range of permissible values and operations that can be performed on that data.
