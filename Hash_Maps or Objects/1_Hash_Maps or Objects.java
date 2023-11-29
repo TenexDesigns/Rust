@@ -67,4 +67,37 @@ This covers the basic usage of hash maps in Rust. The provided exercises at the 
 
 
 
+
+
+
+
+    the  above code explained
+-----------------------------------------------------------------------------------------------------------------------
+    Absolutely, let's break down the logic of the given Rust code:
+
+```rust
+let text = "hello world wonderful world";
+let mut map = HashMap::new();
+
+for word in text.split_whitespace() {
+    let count = map.entry(word).or_insert(0);
+    *count += 1;
+}
+// {"world": 2, "hello": 1, "wonderful": 1}
+```
+
+1. `let text = "hello world wonderful world";`: Defines a string `text` containing a sequence of words.
+
+2. `let mut map = HashMap::new();`: Creates a new, mutable `HashMap` called `map` to store word counts.
+
+3. `for word in text.split_whitespace() {`: Iterates over each word in the string, splitting it based on whitespace.
+
+4. `let count = map.entry(word).or_insert(0);`: Attempts to retrieve the entry for the current `word` from the hash map. If the entry exists, it returns a mutable reference to its value; otherwise, it inserts a new entry with the value 0 and returns a mutable reference to that value. This line effectively checks if the word is already present in the map.
+
+5. `*count += 1;`: Increments the count of the word by 1. This line is executed regardless of whether the word was already present or inserted as a new entry.
+
+The key logic here is in the `entry` method, which returns an `Entry` enum. The `or_insert` method is then used to handle the logic of either retrieving the existing entry or inserting a new one.
+
+So, in summary, the code counts the occurrences of each word in the string using a hash map. If a word is encountered for the first time, it is inserted into the map with a count of 0, and then the count is incremented. If the word is already in the map, its count is simply incremented. The end result is a hash map where the keys are unique words, and the values are the counts of how many times each word appears in the string.
+
   ...
