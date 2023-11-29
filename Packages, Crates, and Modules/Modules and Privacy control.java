@@ -112,7 +112,41 @@ So, to answer your question, `mod front_of_house;` brings the whole `front_of_ho
 
 
 
-  
+  ---------------------------------------------------------------------------------------------------------------
+
+
+    Sure, here is a summary of the provided text on defining modules to control scope and privacy in Rust:
+
+**Defining Modules to Control Scope and Privacy**
+
+Modules are the building blocks of code organization in Rust. They allow you to group related code together and control its visibility within your crate.
+
+**Key Points**
+
+* Modules provide a way to organize code for better readability and maintainability.
+* By default, code within a module is private to its parent module.
+* Use the `pub` keyword to make items within a module public, allowing them to be used by external code.
+* Nested modules allow for hierarchical code organization.
+
+**Organizing Code with Modules**
+
+* Group related code into logical modules based on functionality.
+* Encapsulate code within modules, hiding implementation details and exposing only necessary interfaces.
+* Use consistent naming conventions for modules and items.
+
+**Privacy Rules**
+
+* Code within a module is private by default.
+* Public modules and items can be accessed from anywhere within the crate.
+* Private modules and items cannot be accessed from outside the module or its parent module.
+
+**Example**
+
+The provided example demonstrates how to organize restaurant-related code into nested modules for front-of-house and back-of-house operations.
+
+**Conclusion**
+
+Modules are essential for managing code complexity and promoting maintainability in Rust projects. By understanding module privacy rules and effective code organization techniques, developers can structure their code in a clear and organized manner.
 
 
 
